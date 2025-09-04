@@ -10,11 +10,15 @@ body {
     display: grid;
     grid-template-columns: repeat(var(--columns), 200px);
     justify-content: center;
-    gap: 30px;
+    row-gap: 40px;
+    column-gap: 30px;
     padding: 30px 35px;
     // .people__person
     &__person {
         font-weight: 700;
+        position: relative;
+        z-index: 0;
+        transition: transform 1s ease 0s;
     }
 
     @media (min-width: 1000px){
@@ -27,6 +31,7 @@ body {
     &__photo {
         position: relative;
         img {
+            transition: border-radius 1s ease 0s;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -58,6 +63,10 @@ body {
     }
     // .person__extra
     &__extra {
+        font-weight: 400;
+        color: #000;
+        font-size: 18px;
+        text-align: center;
         display: none;
     }
     // .person__sport
@@ -68,8 +77,33 @@ body {
     }
 
     &:hover{
+        transform: scale(1.2);
+        z-index: 1;
+        
+        &::before{
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+            background-color: #EEEEEE;
+            width: 220px;
+            height: 287px;
+            border-radius: 10px;
+        }
+        .person__photo{
+            img{
+                border-radius: 60px;
+            }
+        }
         .person__extra{
             display: block;
+            position: absolute;
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            background-color: #EEEEEE;
+            z-index: 10;
         }
     }
 }
