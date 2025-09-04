@@ -16,6 +16,13 @@ body {
   font-weight: 700;
 }
 
+@media (width >= 1000px) {
+  .people {
+    --columns: 4;
+    padding: 30px 55px;
+  }
+}
+
 .person__photo {
   position: relative;
 }
@@ -49,5 +56,9 @@ body {
 
 .person__extra {
   display: none;
+}
+
+.person:hover .person__extra {
+  display: block;
 }
 /*# sourceMappingURL=css-practice.b1276d39.css.map */
