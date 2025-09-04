@@ -7,13 +7,16 @@ body {
 .people {
   grid-template-columns: repeat(var(--columns), 200px);
   justify-content: center;
-  gap: 30px;
+  gap: 40px 30px;
   padding: 30px 35px;
   display: grid;
 }
 
 .people__person {
+  z-index: 0;
   font-weight: 700;
+  transition: transform 1s;
+  position: relative;
 }
 
 @media (width >= 1000px) {
@@ -31,6 +34,7 @@ body {
   border-radius: 50%;
   width: 200px;
   height: 200px;
+  transition: border-radius 1s;
 }
 
 .person__rank {
@@ -55,10 +59,41 @@ body {
 }
 
 .person__extra {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
   display: none;
 }
 
+.person:hover {
+  z-index: 1;
+  transform: scale(1.2);
+}
+
+.person:hover:before {
+  content: "";
+  z-index: -1;
+  background-color: #eee;
+  border-radius: 10px;
+  width: 220px;
+  height: 287px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.person:hover .person__photo img {
+  border-radius: 60px;
+}
+
 .person:hover .person__extra {
+  z-index: 10;
+  background-color: #eee;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
   display: block;
+  position: absolute;
 }
 /*# sourceMappingURL=css-practice.b1276d39.css.map */
