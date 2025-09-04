@@ -3,8 +3,8 @@ $main-number-color: #8b0000;
 
 body {
     margin: 0px;
-    --columns: 2;
     font-family: Arial, Helvetica, sans-serif;
+    --columns: 2;
 }
 .people {
     display: grid;
@@ -15,6 +15,11 @@ body {
     // .people__person
     &__person {
         font-weight: 700;
+    }
+
+    @media (min-width: 1000px){
+        --columns: 4;
+        padding: 30px 55px;
     }
 }
 .person {
@@ -60,5 +65,11 @@ body {
     }
     // .person__pay
     &__pay {
+    }
+
+    &:hover{
+        .person__extra{
+            display: block;
+        }
     }
 }
